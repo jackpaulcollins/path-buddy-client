@@ -4,7 +4,7 @@ import { setCredentials, logOut } from '../../features/auth/authSlice';
 let BASE_URL;
 
 if (process.env.NODE_ENV === 'production') {
-  BASE_URL = 'https://path-buddy-4102d3465248.herokuapp.com/api/v1';
+  BASE_URL = 'https://path-buddy-4102d3465248.herokuapp.com';
 } else {
   BASE_URL = 'http://localhost:3001';
 }
