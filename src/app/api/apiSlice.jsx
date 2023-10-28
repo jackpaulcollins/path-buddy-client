@@ -1,8 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { setCredentials, logOut } from '../../features/auth/authSlice';
 
+let BASE_URL;
+
+if (process.env.NODE_ENV === 'production') {
+  BASE_URL = 'https://path-buddy-4102d3465248.herokuapp.com/api/v1';
+} else {
+  BASE_URL = 'http://localhost:3001';
+}
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:3001',
+  baseUrl: BASE_URL,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const { token } = getState().auth;
