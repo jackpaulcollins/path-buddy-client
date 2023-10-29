@@ -2,8 +2,6 @@ import {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import {selectCurrentPathDate} from '../../../features/paths/pathStatsSlice';
-import CircleCheck from '../../../assets/icons/CircleCheck';
-import CircleX from '../../../assets/icons/CircleX';
 import ThumbsUp from '../../../assets/icons/ThumbsUp';
 import ThumbsDown from '../../../assets/icons/ThumbsDown';
 import PathScheduleParser from '../../../utils/PathScheduleParser';
@@ -97,7 +95,8 @@ function PathUnitSection({unit, reFetchPath}) {
     </div>
   );
 
-  const parsePolarity = (unitPolarity) => (unitPolarity === 'positive' ? <CircleCheck extraClasses="text-green-600" /> : <CircleX extraClasses="text-red-600" />);
+  const parsePolarity = (unitPolarity) => (unitPolarity === 'positive' ? 'execute' : 'avoid');
+  const polarityColor = (unitPolarity) => (unitPolarity === 'positive' ? 'green' : 'red');
 
   if (loading) {
     return (
@@ -108,9 +107,13 @@ function PathUnitSection({unit, reFetchPath}) {
   }
 
   return (
-    <div className="px-4 py-6 grid grid-cols-3 gap-x-24 sm:gap-x-48 sm:px-6">
-      <div className="inline-flex sm:grid-cols-2 gap-4">
-        <div>{parsePolarity(polarity)}</div>
+    <div className="p-4 grid grid-cols-4 gap-x-24 sm:gap-x-48 sm:px-6 items-center">
+      <div className="justify-center select-none flex">
+        <span className={`bg-${polarityColor(polarity)}-200 border border-${polarityColor(polarity)}-500 text-${polarityColor(polarity)}-900 text-sm font-normal p-2 rounded-full`}>
+          {parsePolarity(polarity)}
+        </span>
+      </div>
+      <div>
         <dt className="text-sm font-medium text-gray-900">{name}</dt>
       </div>
       <div className="inline-flex">
