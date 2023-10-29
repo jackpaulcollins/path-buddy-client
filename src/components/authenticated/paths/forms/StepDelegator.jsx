@@ -3,7 +3,7 @@ import PathBasics from './PathBasics';
 import PathUnits from './PathUnits';
 import PathReview from './PathReview';
 
-function StepDelegator({ step, formData, setFormData }) {
+function StepDelegator({step, formData, setFormData}) {
   StepDelegator.propTypes = {
     step: PropTypes.number.isRequired,
     setFormData: PropTypes.func.isRequired,

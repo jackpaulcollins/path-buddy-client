@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function ThumbsUp({ extraClasses }) {
+function ThumbsUp({extraClasses}) {
   ThumbsUp.propTypes = {
     extraClasses: PropTypes.string.isRequired,
   };

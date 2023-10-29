@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { selectCurrentUser, selectCurrentToken } from './authSlice';
+import {useSelector} from 'react-redux';
+import {selectCurrentUser, selectCurrentToken} from './authSlice';
 
 function Welcome() {
   const user = useSelector(selectCurrentUser);

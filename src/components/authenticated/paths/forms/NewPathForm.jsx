@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { newPathFormHighlighter, newPathFormSchema } from '../../../../yup/NewPathForm';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {newPathFormHighlighter, newPathFormSchema} from '../../../../yup/NewPathForm';
 import StepDelegator from './StepDelegator';
 import ErrorAlert from '../../../general/ErrorAlert';
-import { useCreatePathMutation } from '../../../../features/paths/pathApiSlice';
-import { setFlash } from '../../../../features/notifications/notificationsSlice';
+import {useCreatePathMutation} from '../../../../features/paths/pathApiSlice';
+import {setFlash} from '../../../../features/notifications/notificationsSlice';
 
 function NewPathForm() {
   const [createPath] = useCreatePathMutation();
@@ -53,11 +53,11 @@ function NewPathForm() {
         },
       }).unwrap();
 
-      const { status, data } = response;
+      const {status, data} = response;
 
       if (status === 201) {
-        dispatch(setFlash({ title: 'Success!', message: 'Your path was created', icon: 'success' }));
-        navigate('/dashboard/my-path', { state: { data } });
+        dispatch(setFlash({title: 'Success!', message: 'Your path was created', icon: 'success'}));
+        navigate('/dashboard/my-path', {state: {data}});
       }
     } catch (e) {
       setFormErrors('Something went wrong, please contact support');
@@ -68,7 +68,7 @@ function NewPathForm() {
     try {
       await newPathFormSchema.validate(formData);
     } catch (e) {
-      const { errors, path } = e;
+      const {errors, path} = e;
       await goToStep(errors[0]);
       setFormErrors(errors[1]);
       hightLightFieldOnError(path);

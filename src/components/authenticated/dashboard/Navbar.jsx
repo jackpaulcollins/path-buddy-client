@@ -1,14 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-import { Fragment } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { logOut, selectCurrentUser } from '../../../features/auth/authSlice';
-import DefaultUserPicture from '../../../assets/icons/DefaultUserPicture'
+import {Fragment} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {useNavigate, Link, useLocation} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Disclosure, Menu, Transition} from '@headlessui/react';
+import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline';
+import {logOut, selectCurrentUser} from '../../../features/auth/authSlice';
+import DefaultUserPicture from '../../../assets/icons/DefaultUserPicture';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -19,7 +17,7 @@ function Navbar() {
   const navigate = useNavigate();
   const user = useSelector(selectCurrentUser);
   const location = useLocation();
-  const { pathname } = location;
+  const {pathname} = location;
 
   const activeLink = (linkIdentifier) => {
     const path = pathname.split('/');
@@ -35,7 +33,7 @@ function Navbar() {
   if (user) {
     return (
       <Disclosure as="nav" className="bg-gray-800">
-        {({ open }) => (
+        {({open}) => (
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">
@@ -58,7 +56,7 @@ function Navbar() {
                         to="new-path"
                         className={activeLink('new-path') ? 'bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white' : 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}
                       >
-                        <FontAwesomeIcon icon={faPlus} style={{ color: '#ffffff' }} />
+                        <FontAwesomeIcon icon={faPlus} style={{color: '#ffffff'}} />
                       </Link>
                     </div>
                   </div>
@@ -94,7 +92,7 @@ function Navbar() {
                       >
                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
-                            {({ active }) => (
+                            {({active}) => (
                               <a
                                 href="#"
                                 className={classNames(
@@ -107,7 +105,7 @@ function Navbar() {
                             )}
                           </Menu.Item>
                           <Menu.Item>
-                            {({ active }) => (
+                            {({active}) => (
                               <a
                                 href="#"
                                 className={classNames(
@@ -120,7 +118,7 @@ function Navbar() {
                             )}
                           </Menu.Item>
                           <Menu.Item>
-                            {({ active }) => (
+                            {({active}) => (
                               <div
                                 onClick={handleLogout}
                                 onKeyDown={handleLogout}

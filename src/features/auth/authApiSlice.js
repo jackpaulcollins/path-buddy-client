@@ -6,28 +6,28 @@ export const authApiSlice = apiSlice.injectEndpoints({
       query: (credentials) => ({
         url: '/api/v1/users/sign_in',
         method: 'POST',
-        body: { ...credentials },
+        body: {...credentials},
       }),
     }),
     register: builder.mutation({
       query: (credentials) => ({
         url: 'api/v1/users/',
         method: 'POST',
-        body: { ...credentials },
+        body: {...credentials},
       }),
     }),
     registerWithOauth: builder.mutation({
-      query: ({ provider, token }) => ({
+      query: ({provider, token}) => ({
         url: 'api/v1/users/oauth/register',
         method: 'POST',
-        body: { credentials: { provider, token } },
+        body: {credentials: {provider, token}},
       }),
     }),
     refreshToken: builder.mutation({
       query: (token) => ({
         url: 'api/v1/tokens/refresh',
         method: 'GET',
-        body: { token },
+        body: {token},
       }),
     }),
     verifyToken: builder.mutation({

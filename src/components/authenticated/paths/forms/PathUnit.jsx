@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faI } from '@fortawesome/free-solid-svg-icons';
+import {useState, useEffect} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrash, faI} from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import Dropdown from '../../../general/Dropdown';
 import SelectField from '../../../general/SelectField';
-import { newPathFormHighlighter } from '../../../../yup/NewPathForm';
+import {newPathFormHighlighter} from '../../../../yup/NewPathForm';
 
 function PathUnit({
   polarity, schedule, name, onRemove, onChange, idx, errorFinder,
@@ -33,7 +33,7 @@ function PathUnit({
 
   useEffect(() => {
     if (schedule.startsWith('custom=')) {
-      const event = { target: { name: 'schedule', value: `custom=${customDaysState}` } };
+      const event = {target: {name: 'schedule', value: `custom=${customDaysState}`}};
       onChange(event, idx);
     }
   }, [customDaysState]);
@@ -45,24 +45,24 @@ function PathUnit({
   }, [schedule]);
 
   const polarityOptions = [
-    { label: 'will', value: 'positive' },
-    { label: 'will not', value: 'negative' },
+    {label: 'will', value: 'positive'},
+    {label: 'will not', value: 'negative'},
   ];
 
   const scheduleOptions = [
-    { label: 'daily', value: 'daily' },
-    { label: 'weekly', value: 'weekly' },
-    { label: 'custom', value: 'custom=' },
+    {label: 'daily', value: 'daily'},
+    {label: 'weekly', value: 'weekly'},
+    {label: 'custom', value: 'custom='},
   ];
 
   const customScheduleOptions = [
-    { label: 'sun', value: 0 },
-    { label: 'mon', value: 1 },
-    { label: 'tues', value: 2 },
-    { label: 'wed', value: 3 },
-    { label: 'thurs', value: 4 },
-    { label: 'fri', value: 5 },
-    { label: 'sat', value: 6 },
+    {label: 'sun', value: 0},
+    {label: 'mon', value: 1},
+    {label: 'tues', value: 2},
+    {label: 'wed', value: 3},
+    {label: 'thurs', value: 4},
+    {label: 'fri', value: 5},
+    {label: 'sat', value: 6},
   ];
 
   const maybeClearErrorClasses = (index, fieldName) => {
@@ -71,7 +71,7 @@ function PathUnit({
 
   const handleDropDownSelect = (label, option) => {
     newPathFormHighlighter('remove', `pathUnits[${errorFinder}].${label}`);
-    const event = { target: { name: label, value: option } };
+    const event = {target: {name: label, value: option}};
     onChange(event, idx);
   };
 

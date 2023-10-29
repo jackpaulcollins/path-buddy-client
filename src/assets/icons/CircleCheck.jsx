@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function CircleCheck({ extraClasses }) {
+function CircleCheck({extraClasses}) {
   CircleCheck.propTypes = {
     extraClasses: PropTypes.string.isRequired,
   };

@@ -1,18 +1,16 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
-import { selectCurrentPathDate } from '../../../features/paths/pathStatsSlice';
+import {selectCurrentPathDate} from '../../../features/paths/pathStatsSlice';
 import CircleCheck from '../../../assets/icons/CircleCheck';
 import CircleX from '../../../assets/icons/CircleX';
 import ThumbsUp from '../../../assets/icons/ThumbsUp';
 import ThumbsDown from '../../../assets/icons/ThumbsDown';
 import PathScheduleParser from '../../../utils/PathScheduleParser';
-import { useCreatePathUnitReportMutation, useGetPathUnitReportMutation } from '../../../features/path_unit_reports/pathUnitReportApiSlice';
+import {useCreatePathUnitReportMutation, useGetPathUnitReportMutation} from '../../../features/path_unit_reports/pathUnitReportApiSlice';
 import ComponentLoading from '../../general/ComponentLoading';
 
-function PathUnitSection({ unit, reFetchPath }) {
+function PathUnitSection({unit, reFetchPath}) {
   PathUnitSection.propTypes = {
     unit: PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -40,7 +38,7 @@ function PathUnitSection({ unit, reFetchPath }) {
         id,
         date,
       }).unwrap();
-      const { report } = response.data;
+      const {report} = response.data;
       setReportState(report?.status);
     } catch (error) {
       console.error(error);

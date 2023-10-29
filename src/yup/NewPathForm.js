@@ -5,14 +5,14 @@ import {
 
 export const newPathFormSchema = object({
   pathUnits: array().of(
-    object().shape({
-      name: string().trim().required([1, 'Discipline Name is required']),
-      polarity:
+      object().shape({
+        name: string().trim().required([1, 'Discipline Name is required']),
+        polarity:
         string()
-          .oneOf(['positive', 'negative'], [1, 'Path discipline "will" or "will not" must be set'])
-          .required('Polarity is required'),
-      schedule: string().trim().required([1, 'Path discipline schedule is required']),
-    }),
+            .oneOf(['positive', 'negative'], [1, 'Path discipline "will" or "will not" must be set'])
+            .required('Polarity is required'),
+        schedule: string().trim().required([1, 'Path discipline schedule is required']),
+      }),
   ),
   pathName: string().required([0, 'Name is required']),
   pathWhy: string().nullable(),

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function TextBubble({ extraclasses }) {
+function TextBubble({extraclasses}) {
   TextBubble.propTypes = {
     extraclasses: PropTypes.string,
   };

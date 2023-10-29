@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { setCredentials, logOut } from '../../features/auth/authSlice';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {setCredentials, logOut} from '../../features/auth/authSlice';
 
 let BASE_URL;
 
@@ -12,8 +12,8 @@ if (process.env.NODE_ENV === 'production') {
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: 'include',
-  prepareHeaders: (headers, { getState }) => {
-    const { token } = getState().auth;
+  prepareHeaders: (headers, {getState}) => {
+    const {token} = getState().auth;
     if (token) {
       headers.set('authorization', `Bearer ${token}`);
     }
@@ -22,12 +22,12 @@ const baseQuery = fetchBaseQuery({
   responseHandler: async (response) => {
     const headers = {
       'content-type': response.headers.get('content-type'),
-      authorization: response.headers.get('authorization'),
+      'authorization': response.headers.get('authorization'),
     };
-    const { status } = response;
+    const {status} = response;
 
     if (status === 204) {
-      return { status, data: null, headers };
+      return {status, data: null, headers};
     }
 
     if (status === 403) {
@@ -35,7 +35,7 @@ const baseQuery = fetchBaseQuery({
     }
 
     const data = await response.json();
-    return { status, data, headers };
+    return {status, data, headers};
   },
 });
 
@@ -46,8 +46,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     const refreshResult = await baseQuery('/refresh', api, extraOptions);
     console.log(refreshResult);
     if (refreshResult?.data) {
-      const { user } = api.getState().auth;
-      api.dispatch(setCredentials({ ...refreshResult.data, user }));
+      const {user} = api.getState().auth;
+      api.dispatch(setCredentials({...refreshResult.data, user}));
       result = await baseQuery(args, api, extraOptions);
     } else {
       api.dispatch(logOut);

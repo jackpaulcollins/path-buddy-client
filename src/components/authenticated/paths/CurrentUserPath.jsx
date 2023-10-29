@@ -1,16 +1,13 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import {
   toDate, format, addDays, subDays,
 } from 'date-fns';
-import { selectCurrentUser } from '../../../features/auth/authSlice';
-import { useFetchPathMutation, useValidOnDateMutation, useCurrentStreakMutation } from '../../../features/paths/pathApiSlice';
-import { setFlash } from '../../../features/notifications/notificationsSlice';
-import { setDate } from '../../../features/paths/pathStatsSlice';
+import {selectCurrentUser} from '../../../features/auth/authSlice';
+import {useFetchPathMutation, useValidOnDateMutation, useCurrentStreakMutation} from '../../../features/paths/pathApiSlice';
+import {setFlash} from '../../../features/notifications/notificationsSlice';
+import {setDate} from '../../../features/paths/pathStatsSlice';
 import CurrentUserPathDescriptionSection from './CurrentUserPathDescriptionSection';
 import PathUnitSection from './PathUnitSection';
 import LeftCarrot from '../../../assets/icons/LeftCarrot';
@@ -44,7 +41,7 @@ function CurrentUserPath() {
     // eslint-disable-next-line max-len
     const offSetDate = dateOffest >= 0 ? addDays(currentDate, dateOffest) : subDays(currentDate, (dateOffest * -1));
 
-    return format(toDate(offSetDate, { timeZone: user.time_zone }), 'MMMM d, yyyy');
+    return format(toDate(offSetDate, {timeZone: user.time_zone}), 'MMMM d, yyyy');
   };
 
   const date = calculateDateFromOffest();
@@ -54,26 +51,26 @@ function CurrentUserPath() {
     if (response.status === 200) {
       setPath(response.data.path);
     } else if (response.status === 204) {
-      dispatch(setFlash({ title: 'Information', message: "You haven't created a path yet!", icon: 'info' }));
+      dispatch(setFlash({title: 'Information', message: 'You haven\'t created a path yet!', icon: 'info'}));
       navigate('/dashboard/new-path');
     }
   };
 
   const getCurrentDateValidity = async (pathId, currDate) => {
-    const response = await fetchValidity({ id: pathId, date: currDate }).unwrap();
-    const { validity } = response.data;
+    const response = await fetchValidity({id: pathId, date: currDate}).unwrap();
+    const {validity} = response.data;
     setValidForDate(validity);
   };
 
   const getCurrentStreak = async (pathId) => {
-    const response = await fetchStreak({ id: pathId }).unwrap();
-    const { streak } = response.data;
+    const response = await fetchStreak({id: pathId}).unwrap();
+    const {streak} = response.data;
     setCurrentStreak(streak);
   };
 
   useEffect(() => {
     setLoading(true);
-    dispatch(setDate({ date }));
+    dispatch(setDate({date}));
 
     const fetchData = async () => {
       if (!fromRouteData) {

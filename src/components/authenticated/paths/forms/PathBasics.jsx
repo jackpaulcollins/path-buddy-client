@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import Datepicker from 'react-tailwindcss-datepicker';
 import PropTypes from 'prop-types';
-import { newPathFormHighlighter } from '../../../../yup/NewPathForm';
+import {newPathFormHighlighter} from '../../../../yup/NewPathForm';
 
-function PathBasics({ formData, setFormData }) {
+function PathBasics({formData, setFormData}) {
   PathBasics.propTypes = {
     setFormData: PropTypes.func.isRequired,
     formData: PropTypes.shape({
@@ -24,12 +23,12 @@ function PathBasics({ formData, setFormData }) {
   };
 
   const handleStartDateValueChange = (newValue) => {
-    setFormData({ ...formData, pathStartDate: newValue.startDate });
+    setFormData({...formData, pathStartDate: newValue.startDate});
     maybeClearErrorClasses('pathStartDate');
   };
 
   const handleEndDateValueChange = (newValue) => {
-    setFormData({ ...formData, pathEndDate: newValue.endDate });
+    setFormData({...formData, pathEndDate: newValue.endDate});
     maybeClearErrorClasses('pathEndDate');
   };
 
@@ -88,7 +87,7 @@ function PathBasics({ formData, setFormData }) {
               value={pathName}
               onChange={(event) => {
                 maybeClearErrorClasses('pathName');
-                setFormData({ ...formData, pathName: event.target.value });
+                setFormData({...formData, pathName: event.target.value});
               }}
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
@@ -106,7 +105,7 @@ function PathBasics({ formData, setFormData }) {
             type="text"
             placeholder="Your why"
             value={pathWhy}
-            onChange={(event) => setFormData({ ...formData, pathWhy: event.target.value })}
+            onChange={(event) => setFormData({...formData, pathWhy: event.target.value})}
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
         </label>

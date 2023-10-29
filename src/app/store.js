@@ -1,5 +1,5 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import {persistReducer} from 'redux-persist';
 import localforage from 'localforage';
 import apiSlice from './api/apiSlice';
 import authReducer from '../features/auth/authSlice';

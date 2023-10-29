@@ -1,8 +1,8 @@
-import { CalendarDaysIcon } from '@heroicons/react/20/solid';
+import {CalendarDaysIcon} from '@heroicons/react/20/solid';
 import PropTypes from 'prop-types';
 import TextBubble from '../../../assets/icons/TextBubble';
 
-function CurrentUserPathDescriptionSection({ details }) {
+function CurrentUserPathDescriptionSection({details}) {
   CurrentUserPathDescriptionSection.propTypes = {
     details: PropTypes.shape({
       name: PropTypes.string,

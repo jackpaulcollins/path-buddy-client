@@ -1,11 +1,9 @@
-/* eslint-disable max-len */
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import CirclePlus from '../../../../assets/icons/CirclePlus';
 import PathUnit from './PathUnit';
 
-function PathUnits({ formData, setFormData }) {
+function PathUnits({formData, setFormData}) {
   PathUnits.propTypes = {
     setFormData: PropTypes.func.isRequired,
     formData: PropTypes.shape({
@@ -25,8 +23,7 @@ function PathUnits({ formData, setFormData }) {
   };
 
   const unitsSet = !!formData.pathUnits.length;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // eslint-disable-next-line
   const [pathUnits, setPathUnits] = unitsSet ? useState(formData.pathUnits) : useState([formObject]);
 
   useEffect(() => {
@@ -44,7 +41,7 @@ function PathUnits({ formData, setFormData }) {
   };
 
   const handleUnitChange = (e, idx) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setPathUnits((prevUnits) => {
       const targetIndex = prevUnits.findIndex((item) => item.index === idx);
       if (targetIndex === -1) {
@@ -79,7 +76,7 @@ function PathUnits({ formData, setFormData }) {
         />
       ))}
       <div role="button" tabIndex={0} onKeyDown={handleAddPathunitUnit} onClick={handleAddPathunitUnit}>
-        <FontAwesomeIcon className="hover:cursor-pointer mt-4" icon={faPlusCircle} />
+        <CirclePlus className="hover:cursor-pointer mt-4" />
       </div>
     </div>
   );

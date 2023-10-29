@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import {Routes, Route} from 'react-router-dom';
+import {GoogleOAuthProvider} from '@react-oauth/google';
 import Public from './components/public/Public';
 import Login from './features/auth/Login';
 import Register from './features/auth/Register';

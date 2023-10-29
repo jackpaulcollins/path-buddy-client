@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { XCircleIcon } from '@heroicons/react/20/solid';
-import { Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import {XCircleIcon} from '@heroicons/react/20/solid';
+import {Transition} from '@headlessui/react';
+import {Fragment} from 'react';
 
-function ErrorAlert({ messages, clearErrors }) {
+function ErrorAlert({messages, clearErrors}) {
   const show = messages.length > 0;
   return (
     <Transition

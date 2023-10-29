@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import PathScheduleParser from '../../../../utils/PathScheduleParser';
 
-function PathReview({ formData }) {
+function PathReview({formData}) {
   PathReview.propTypes = {
     formData: PropTypes.shape({
       pathName: PropTypes.string,

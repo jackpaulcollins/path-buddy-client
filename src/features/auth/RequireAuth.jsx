@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useLocation, Navigate, Outlet } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCurrentToken, logOut } from './authSlice';
-import { useVerifyTokenMutation } from './authApiSlice';
+import {useState, useEffect} from 'react';
+import {useLocation, Navigate, Outlet} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {selectCurrentToken, logOut} from './authSlice';
+import {useVerifyTokenMutation} from './authApiSlice';
 import FullScreenLoading from '../../components/general/FullScreenLoading';
 
 function RequireAuth() {
@@ -12,12 +12,12 @@ function RequireAuth() {
   const [verifyToken] = useVerifyTokenMutation();
   const token = useSelector(selectCurrentToken);
   const dispatch = useDispatch();
-  const { pathname } = location;
+  const {pathname} = location;
 
   useEffect(() => {
     const authenticateToken = async () => {
-      const response = await verifyToken({ token }).unwrap();
-      const { user } = response.data;
+      const response = await verifyToken({token}).unwrap();
+      const {user} = response.data;
 
       setIsLoading(false);
       if (user) setAuthenticated(true);
@@ -25,12 +25,12 @@ function RequireAuth() {
 
     if (token) {
       authenticateToken()
-        .catch((error) => {
-          const { verified } = error.data;
-          dispatch(logOut());
-          setIsLoading(false);
-          setAuthenticated(verified);
-        });
+          .catch((error) => {
+            const {verified} = error.data;
+            dispatch(logOut());
+            setIsLoading(false);
+            setAuthenticated(verified);
+          });
     } else {
       setIsLoading(false);
       setAuthenticated(false);
@@ -42,9 +42,9 @@ function RequireAuth() {
   }
 
   return (
-    authenticated && !isLoading
-      ? <Outlet />
-      : <Navigate to="/" state={{ from: location }} replace />
+    authenticated && !isLoading ?
+      <Outlet /> :
+      <Navigate to="/" state={{from: location}} replace />
   );
 }
 export default RequireAuth;

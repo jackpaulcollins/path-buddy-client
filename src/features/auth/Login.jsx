@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setCredentials } from './authSlice';
-import { useLoginMutation } from './authApiSlice';
+import {useRef, useState, useEffect} from 'react';
+import {useNavigate, Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {setCredentials} from './authSlice';
+import {useLoginMutation} from './authApiSlice';
 import ErrorAlert from '../../components/general/ErrorAlert';
 import GoogleAuthProvider from './GoogleAuthProvider';
 
@@ -13,7 +13,7 @@ function Login() {
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, {isLoading}] = useLoginMutation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,12 +28,12 @@ function Login() {
     e.preventDefault();
 
     try {
-      const userInput = { email, password };
-      const response = await login({ user: userInput }).unwrap();
-      const { user } = response.data;
-      const { authorization } = response.headers;
+      const userInput = {email, password};
+      const response = await login({user: userInput}).unwrap();
+      const {user} = response.data;
+      const {authorization} = response.headers;
       const token = authorization.replace('Bearer ', '');
-      dispatch(setCredentials({ user, token }));
+      dispatch(setCredentials({user, token}));
       localStorage.setItem('PB-JWT-TOKEN', token);
       setEmail('');
       setPassword('');

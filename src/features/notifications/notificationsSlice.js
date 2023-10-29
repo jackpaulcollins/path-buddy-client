@@ -1,12 +1,12 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const notificationsSlice = createSlice({
   name: 'notificatons',
-  initialState: { message: null, icon: null },
+  initialState: {message: null, icon: null},
   reducers: {
     setFlash: (state, action) => {
-      const { message, icon, title } = action.payload;
+      const {message, icon, title} = action.payload;
       state.title = title;
       state.message = message;
       state.icon = icon;
@@ -19,7 +19,7 @@ const notificationsSlice = createSlice({
   },
 });
 
-export const { setFlash, clearFlash } = notificationsSlice.actions;
+export const {setFlash, clearFlash} = notificationsSlice.actions;
 
 export default notificationsSlice.reducer;
 

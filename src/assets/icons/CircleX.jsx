@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function CircleX({ extraClasses }) {
+function CircleX({extraClasses}) {
   CircleX.propTypes = {
     extraClasses: PropTypes.string.isRequired,
   };

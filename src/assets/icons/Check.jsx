@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function Check({ extraClasses }) {
+function Check({extraClasses}) {
   Check.propTypes = {
     extraClasses: PropTypes.string.isRequired,
   };

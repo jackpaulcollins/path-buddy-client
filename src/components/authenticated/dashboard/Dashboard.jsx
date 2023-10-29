@@ -1,11 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {Routes, Route} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import Navbar from './Navbar';
 import CurrentUserPath from '../paths/CurrentUserPath';
 import DashboardTimeline from './DashboardTimeline';
 import NewPathForm from '../paths/forms/NewPathForm';
 import Notificaton from '../../general/Notification';
-import { selectCurrentFlashMessage } from '../../../features/notifications/notificationsSlice';
+import {selectCurrentFlashMessage} from '../../../features/notifications/notificationsSlice';
 
 function Dahboard() {
   const flash = useSelector(selectCurrentFlashMessage);
