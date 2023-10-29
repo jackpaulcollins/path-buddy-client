@@ -167,17 +167,17 @@ function Navbar() {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
                 <Link
-                  to="dashboard"
+                  to="/dashboard"
                   className={activeLink('dashboard') ? 'block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}
                 >
                   Dashboard
                 </Link>
                 <Link
-                  to="my-paths"
-                  className={activeLink('my-paths') ? 'block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}
+                  to="my-path"
+                  className={activeLink('my-path') ? 'block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}
 
                 >
-                  My Paths
+                  My Path
                 </Link>
                 <Link
                   to="new-path"
