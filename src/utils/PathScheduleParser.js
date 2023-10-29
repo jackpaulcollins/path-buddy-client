@@ -5,7 +5,7 @@ class PathScheduleParser {
   }
 
   parse() {
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const daysOfWeek = ['S', 'M', 'Tue', 'W', 'Thur', 'F', 'S'];
     const scheduleArray = this.scheduleString.split(',').map(Number);
     const result = [];
 
