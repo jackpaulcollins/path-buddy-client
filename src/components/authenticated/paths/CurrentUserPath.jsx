@@ -38,7 +38,6 @@ function CurrentUserPath() {
 
   const calculateDateFromOffest = () => {
     const currentDate = new Date();
-    // eslint-disable-next-line max-len
     const offSetDate = dateOffest >= 0 ? addDays(currentDate, dateOffest) : subDays(currentDate, (dateOffest * -1));
 
     return format(toDate(offSetDate, {timeZone: user.time_zone}), 'MMMM d, yyyy');
