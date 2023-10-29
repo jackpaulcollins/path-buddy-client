@@ -19,13 +19,15 @@ class PathScheduleParser {
     return result.join(', ');
   }
 
+  // make this do nothing for now to save screen space
+  // but leave it incase needed in future
   periodDisplay() {
     if (this.scheduleString === 'weekly') {
-      return this.schedulePolarity === 'positive' ? 'At least once a week' : 'Weekly';
+      return 'weekly';
     }
 
     if (this.scheduleString === 'daily') {
-      return this.schedulePolarity === 'positive' ? 'At least once a day' : 'Everyday';
+      return 'daily';
     }
 
     return this.scheduleString;

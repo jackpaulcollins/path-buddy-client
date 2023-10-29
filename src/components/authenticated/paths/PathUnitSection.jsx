@@ -107,7 +107,7 @@ function PathUnitSection({unit, reFetchPath}) {
   }
 
   return (
-    <div className="p-4 grid grid-cols-4 gap-x-24 sm:gap-x-48 sm:px-6 items-center">
+    <div className="p-4 px-8 grid grid-cols-4 gap-x-24 sm:gap-x-48 sm:px-6 items-center">
       <div className="justify-center select-none flex">
         <span className={`bg-${polarityColor(polarity)}-200 border border-${polarityColor(polarity)}-500 text-${polarityColor(polarity)}-900 text-sm font-normal p-2 rounded-full`}>
           {parsePolarity(polarity)}
