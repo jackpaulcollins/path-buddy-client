@@ -1,10 +1,10 @@
 import {
   useRef, useState, useEffect,
 } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setCredentials } from './authSlice';
-import { useRegisterMutation } from './authApiSlice';
+import {useNavigate, Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {setCredentials} from './authSlice';
+import {useRegisterMutation} from './authApiSlice';
 import Dropdown from '../../components/general/Dropdown';
 import systemTimeZones from '../../constants/timeZones';
 import ErrorAlert from '../../components/general/ErrorAlert';
@@ -23,7 +23,7 @@ function Login() {
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
 
-  const [register, { isLoading }] = useRegisterMutation();
+  const [register, {isLoading}] = useRegisterMutation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -79,11 +79,11 @@ function Login() {
         password,
         password_confirmation: passwordConfirmation,
       };
-      const response = await register({ user: userInput }).unwrap();
-      const { user } = response.data;
-      const { authorization } = response.headers;
+      const response = await register({user: userInput}).unwrap();
+      const {user} = response.data;
+      const {authorization} = response.headers;
       const token = authorization.replace('Bearer ', '');
-      dispatch(setCredentials({ user, token }));
+      dispatch(setCredentials({user, token}));
       clearformState();
       navigate('/dashboard');
     } catch (error) {
@@ -112,9 +112,19 @@ function Login() {
   const clearErrors = () => setErrMsg('');
 
   const content = (
-    <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div
+      className="
+        flex
+        min-h-full
+        flex-1
+        flex-col
+        justify-center
+        py-12
+        sm:px-6
+        lg:px-8"
+    >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-6 text-center text-2xl font-boldhttps://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/react-in-jsx-scope.md leading-9 tracking-tight text-gray-900">
           Sign up for an account
         </h2>
       </div>
