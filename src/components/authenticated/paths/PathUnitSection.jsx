@@ -110,7 +110,7 @@ function PathUnitSection({ unit, reFetchPath }) {
   }
 
   return (
-    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-48 sm:px-6">
+    <div className="px-4 py-6 grid grid-cols-3 gap-x-24 sm:gap-x-48 sm:px-6">
       <div className="inline-flex sm:grid-cols-2 gap-4">
         <div>{parsePolarity(polarity)}</div>
         <dt className="text-sm font-medium text-gray-900">{name}</dt>

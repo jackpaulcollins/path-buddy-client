@@ -111,7 +111,7 @@ function CurrentUserPath() {
   const content = () => {
     if (path && !loading) {
       return (
-        <div className="mt-6 overflow-hidden w-2/3 m-auto bg-white shadow sm:rounded-lg">
+        <div className="mt-6 overflow-hidden lg:w-2/3 m-auto bg-white shadow sm:rounded-lg">
           <div className="inline-flex w-full justify-evenly">
             <div onClick={() => handleDateChange(-1)}><LeftCarrot /></div>
             <div className="inline-flex">
@@ -129,7 +129,7 @@ function CurrentUserPath() {
               streak: currentStreak,
             }}
           />
-          <div className="border-t border-gray-100">
+          <div className="w-full border-t border-gray-100">
             <dl className="divide-y divide-gray-100">
               { path && path.path_units.map((unit) => (
                 <PathUnitSection key={unit.name} unit={unit} reFetchPath={reFetch} />
