@@ -114,8 +114,8 @@ function PathUnitSection({unit, reFetchPath}) {
         </span>
       </div>
 
-      <div className="flex flex-row justify-center items-center">
-        <div className="justify-center items-center sm:flex flex-col">
+      <div className="flex flex-row justify-start items-center">
+        <div className="sm:flex flex-col">
           <dt className="text-sm font-medium text-gray-900">{name}</dt>
           <dt className="sm:hidden text-sm min-w-1/3 text-gray-700">
             {parsedSchedule(schedule, polarity)}
