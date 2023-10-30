@@ -108,11 +108,12 @@ function PathUnitSection({unit, reFetchPath}) {
 
   return (
     <div className="p-2 sm:px-8 grid grid-cols-3 sm:grid-cols-4">
-      <div className="justify-center select-none flex">
-        <span className={`bg-${polarityColor(polarity)}-200 border border-${polarityColor(polarity)}-500 text-${polarityColor(polarity)}-900 text-sm font-normal p-2 rounded-full`}>
+      <div className="justify-center items-center flex">
+        <span className={`w-16 h-8 bg-${polarityColor(polarity)}-200 border border-${polarityColor(polarity)}-500 text-${polarityColor(polarity)}-900 text-xs inline-flex justify-center items-center font-normal p-1 rounded-full shadow-sm`}>
           {parsePolarity(polarity)}
         </span>
       </div>
+
 
       <div className="flex flex-row justify-start items-center">
         <div className="sm:flex flex-col">
