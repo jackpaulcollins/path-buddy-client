@@ -107,19 +107,28 @@ function PathUnitSection({unit, reFetchPath}) {
   }
 
   return (
-    <div className="p-4 px-8 grid grid-cols-4 gap-x-24 sm:gap-x-48 sm:px-6 items-center">
+    <div className="p-2 sm:px-8 grid grid-cols-3 sm:grid-cols-4">
       <div className="justify-center select-none flex">
         <span className={`bg-${polarityColor(polarity)}-200 border border-${polarityColor(polarity)}-500 text-${polarityColor(polarity)}-900 text-sm font-normal p-2 rounded-full`}>
           {parsePolarity(polarity)}
         </span>
       </div>
-      <div>
-        <dt className="text-sm font-medium text-gray-900">{name}</dt>
+
+      <div className="flex flex-row justify-center items-center">
+        <div className="justify-center items-center sm:flex flex-col">
+          <dt className="text-sm font-medium text-gray-900">{name}</dt>
+          <dt className="sm:hidden text-sm min-w-1/3 text-gray-700">
+            {parsedSchedule(schedule, polarity)}
+          </dt>
+        </div>
       </div>
-      <div className="inline-flex">
-        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{parsedSchedule(schedule, polarity)}</dd>
+
+      <div className="hidden sm:flex sm:flex-row sm:justify-center sm:items-center">
+        <dd className="mt-1 text-sm text-gray-700">
+          {parsedSchedule(schedule, polarity)}
+        </dd>
       </div>
-      <div>{renderPathActionSection()}</div>
+      <div className="flex flex-row justify-center items-center">{renderPathActionSection()}</div>
     </div>
   );
 }
